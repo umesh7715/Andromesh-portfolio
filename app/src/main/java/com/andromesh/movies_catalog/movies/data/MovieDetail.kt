@@ -6,8 +6,6 @@ import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "movie_detail")
 data class MovieDetail(
-        @PrimaryKey
-        val id: Long,
 
         @field:SerializedName("Title")
         val title: String,
@@ -39,6 +37,7 @@ data class MovieDetail(
         @field:SerializedName("imdbRating")
         val imdbRating: String,
 
+        @PrimaryKey
         @field:SerializedName("imdbID")
         val imdbID: String
 
@@ -46,6 +45,6 @@ data class MovieDetail(
 ) {
 
     override fun toString(): String {
-        return "MovieDetail(id=$id, title='$title', released='$released', runtime='$runtime', genre='$genre', actors='$actors', director='$director', plot='$plot', language='$language', poster='$poster', imdbRating='$imdbRating', imdbID='$imdbID')"
+        return "MovieDetail(title='$title', released='$released', runtime='$runtime', genre='$genre', actors='$actors', director='$director', plot='$plot', language='$language', poster='$poster', imdbRating='$imdbRating', imdbID='$imdbID')"
     }
 }

@@ -8,5 +8,5 @@ data class ResultsResponse<T>(
         @SerializedName("Search")
         val search: List<T>,
         @SerializedName("Response")
-        val response: List<T>
+        val response: Boolean
 )

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/moviesFragment">
+
+    <fragment
+        android:id="@+id/moviesFragment"
+        tools:layout="@layout/movies_fragment"
+        android:name="com.andromesh.movies_catalog.movies.ui.MoviesFragment"
+        android:label="@string/movies_list">
+
+        <action
+            android:id="@+id/action_moviesFragment_to_movieFragment"
+            app:destination="@id/movieFragment">
+
+            <argument
+                android:name="imdbID"
+                app:argType="string" />
+
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/movieFragment"
+        android:name="com.andromesh.movies_catalog.movies.ui.MovieFragment"
+        android:label="MovieFragment" />
+
+</navigation>
