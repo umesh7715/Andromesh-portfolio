@@ -7,23 +7,30 @@
 
     <fragment
         android:id="@+id/moviesFragment"
-        tools:layout="@layout/movies_fragment"
-        android:name="com.andromesh.movies_catalog.movies.ui.MoviesFragment"
-        android:label="@string/movies_list">
+        android:name="com.andromesh.my_portfolio.movies.ui.MoviesFragment"
+        android:label="@string/movies_list"
+        tools:layout="@layout/movies_fragment">
 
         <action
             android:id="@+id/action_moviesFragment_to_movieFragment"
             app:destination="@id/movieFragment">
 
-            <argument
-                android:name="imdbID"
-                app:argType="string" />
 
         </action>
     </fragment>
     <fragment
         android:id="@+id/movieFragment"
-        android:name="com.andromesh.movies_catalog.movies.ui.MovieFragment"
-        android:label="MovieFragment" />
+        android:name="com.andromesh.my_portfolio.movies.ui.MovieFragment"
+        android:label="MovieFragment">
+
+        <argument
+            android:name="imdbID"
+            app:argType="string" />
+
+        <argument
+            android:name="name"
+            app:argType="string" />
+
+    </fragment>
 
 </navigation>

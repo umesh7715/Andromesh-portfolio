@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">Movies-Catalog</string>
+    <string name="app_name">My Portfolio</string>
 
     <!-- Resources that do not require translation -->
-    <string name="navigation_drawer_header_title" translatable="false">LEGO®</string>
+    <string name="navigation_drawer_header_title" translatable="false">Andromesh</string>
 
     <!-- Translatable resources -->
     <string name="filter" translation_description="Common Filter">Filter</string>
@@ -19,7 +19,17 @@
 
     <!-- Accessibility -->
     <string name="a11y_legoset_item_image">Picture of Lego Set</string>
+    <string name="movies_navigation_item">Movies</string>
     <string name="movies_list">Searched Movies</string>
     <string name="movie_details">Movie Details</string>
+    <string name="password_hint">Type your password</string>
+    <string name="username_hint">Type your username</string>
+    <string name="login">Login</string>
+    <string name="password_label">Password</string>
+    <string name="username_label">Username</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="new_user_resister">New User? Resister</string>
+    <string name="register">Register</string>
+
 
 </resources>
