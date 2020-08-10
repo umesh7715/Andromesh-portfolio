@@ -9,4 +9,6 @@
     <dimen name="navigation_drawer_header_padding">16dp</dimen>
     <dimen name="navigation_drawer_image_width">100dp</dimen>
 
+    <dimen name="login_screen_2_gradient_eadius">50dp</dimen>
+
 </resources>

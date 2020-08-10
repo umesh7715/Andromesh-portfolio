@@ -1,4 +1,4 @@
-package com.andromesh.my_portfolio.auth
+package com.andromesh.my_portfolio.auth.screen3
 
 import android.app.Activity
 import android.content.Intent
@@ -10,13 +10,14 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.andromesh.my_portfolio.MainActivity
+import com.andromesh.my_portfolio.auth.screen1.LoginFragmentDirections
 import com.andromesh.my_portfolio.databinding.LoginFragmentBinding
 import com.andromesh.my_portfolio.di.Injectable
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-class LoginFragment : Fragment(), Injectable {
+class LoginFragment3 : Fragment(), Injectable {
 
     private lateinit var binding: LoginFragmentBinding
 

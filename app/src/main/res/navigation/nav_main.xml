@@ -33,4 +33,24 @@
 
     </fragment>
 
+    <fragment
+        android:id="@+id/dummyFragmentOne"
+        android:name="com.andromesh.my_portfolio.dummy_frgaments.DummyFragmentOne"
+        android:label="@string/dummy_fragment_1" />
+
+    <fragment
+        android:id="@+id/dummyFragmentTwo"
+        android:name="com.andromesh.my_portfolio.dummy_frgaments.DummyFragmentTwo"
+        android:label="@string/dummy_fragment_2" />
+
+    <fragment
+        android:id="@+id/dummyFragmentThree"
+        android:name="com.andromesh.my_portfolio.dummy_frgaments.DummyFragmentThree"
+        android:label="@string/dummy_fragment_3" />
+
+    <fragment
+        android:id="@+id/dummyFragmentFour"
+        android:name="com.andromesh.my_portfolio.dummy_frgaments.DummyFragmentFour"
+        android:label="@string/dummy_fragment_4" />
+
 </navigation>

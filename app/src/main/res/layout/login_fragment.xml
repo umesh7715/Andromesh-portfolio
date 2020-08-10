@@ -8,26 +8,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="20dp"
-        tools:layout_editor_absoluteX="-11dp"
-        tools:layout_editor_absoluteY="-16dp">
+        android:padding="20dp">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.30" />
+            app:layout_constraintGuide_percent="0.25" />
 
         <TextView
             android:id="@+id/tvLabelUsername"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginLeft="30dp"
             android:paddingStart="5dp"
             android:paddingLeft="5dp"
             android:text="@string/username_label"
+            android:textColor="@color/Gray_Wolf"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline"
@@ -38,13 +36,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:drawableStart="@drawable/ic_person_black_18dp"
-            android:drawableLeft="@drawable/ic_person_black_18dp"
+            android:drawableStart="@drawable/username_icon"
+            android:drawableLeft="@drawable/username_icon"
             android:drawablePadding="5dp"
             android:ems="10"
             android:hint="@string/username_hint"
             android:inputType="textEmailAddress"
+            android:textColor="@color/Gray_Wolf"
+            android:textColorHint="@color/Gray_Wolf"
             android:textSize="14sp"
+            app:drawableTint="@color/Gray_Wolf"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/tvLabelUsername"
             app:layout_constraintTop_toBottomOf="@+id/tvLabelUsername" />
@@ -55,6 +56,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="@string/password_label"
+            android:textColor="@color/Gray_Wolf"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/etUsername"
             app:layout_constraintTop_toBottomOf="@+id/etUsername" />
@@ -63,13 +66,16 @@
             android:id="@+id/etPassword"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_vpn_key_black_18dp"
-            android:drawableLeft="@drawable/ic_vpn_key_black_18dp"
+            android:drawableStart="@drawable/password_icon"
+            android:drawableLeft="@drawable/password_icon"
             android:drawablePadding="5dp"
             android:ems="10"
             android:hint="@string/password_hint"
             android:inputType="textPassword"
+            android:textColor="@color/Gray_Wolf"
+            android:textColorHint="@color/Gray_Wolf"
             android:textSize="14sp"
+            app:drawableTint="@color/Gray_Wolf"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/tvPasswordLabel"
             app:layout_constraintTop_toBottomOf="@+id/tvPasswordLabel"
@@ -81,6 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:text="@string/forgot_password"
+            android:textColor="@color/Gray_Wolf"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/etPassword"
             app:layout_constraintTop_toBottomOf="@+id/etPassword" />
@@ -91,6 +98,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:text="@string/new_user_resister"
+            android:textColor="@color/Gray_Wolf"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/etPassword"
             app:layout_constraintTop_toBottomOf="@+id/etPassword" />
@@ -104,6 +112,7 @@
             android:layout_marginTop="70dp"
             android:layout_marginEnd="30dp"
             android:text="@string/login"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etPassword" />
@@ -129,6 +138,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/tvLabelUsername"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/app_full_logo_with_name" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

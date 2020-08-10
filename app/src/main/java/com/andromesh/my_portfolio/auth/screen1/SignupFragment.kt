@@ -1,4 +1,4 @@
-package com.andromesh.my_portfolio.auth
+package com.andromesh.my_portfolio.auth.screen1
 
 import android.app.Activity
 import android.content.Intent

@@ -12,10 +12,10 @@ class Constants {
 
         val AUTH_TAGS = listOf(
                 "Firebase username/password login",
-                "Firebase remode data",
-                "Google",
-                "Facebook",
-                "Github"
+                "Firebase remode config",
+                "Firebase Google login",
+                "Firebase Facebook login",
+                "Firebase Github login"
         )
     }
 

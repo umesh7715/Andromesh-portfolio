@@ -18,12 +18,16 @@ import com.google.android.material.chip.ChipGroup
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig
+import com.google.firebase.remoteconfig.ktx.remoteConfig
+import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
-import com.andromesh.my_portfolio.R.layout.auth_bottom_sheet
 
 class AuthActivity : AppCompatActivity(), HasSupportFragmentInjector {
+
+    private lateinit var remoteConfig: FirebaseRemoteConfig
 
     @Inject
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
@@ -42,6 +46,20 @@ class AuthActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
         auth = Firebase.auth
 
+        remoteConfig = Firebase.remoteConfig
+        val configSettings = remoteConfigSettings {
+            minimumFetchIntervalInSeconds = 0
+        }
+        remoteConfig.setConfigSettingsAsync(configSettings)
+        remoteConfig.setDefaultsAsync(R.xml.remote_config_defaults)
+
+        remoteConfig.fetchAndActivate()
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        val updated = task.result
+                    }
+                }
+
         navController = findNavController(R.id.nav_fragment)
 
         setupBottomSheet(binding.bottomSheet)
@@ -53,9 +71,6 @@ class AuthActivity : AppCompatActivity(), HasSupportFragmentInjector {
             val chip = Chip(cgTags.context)
             chip.text = item
 
-            // necessary to get single selection working
-            chip.isClickable = true
-            chip.isCheckable = true
             cgTags.addView(chip)
         }
 
@@ -63,8 +78,8 @@ class AuthActivity : AppCompatActivity(), HasSupportFragmentInjector {
     }
 
     fun setupBottomSheet(bottomSheet: View) {
-        bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet as ConstraintLayout?)
-        bottomSheetBehavior.setBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
+        bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet as ConstraintLayout)
+        bottomSheetBehavior.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
             override fun onSlide(bottomSheet: View, slideOffset: Float) {
 
             }
@@ -106,6 +121,22 @@ class AuthActivity : AppCompatActivity(), HasSupportFragmentInjector {
     }
 
     override fun supportFragmentInjector() = dispatchingAndroidInjector
+
+    override fun onBackPressed() {
+
+        when (navController.currentDestination?.id) {
+            R.id.loginFragment -> {
+                finish()
+            }
+            R.id.loginFragment2 -> {
+                finish()
+            }
+            else -> {
+                super.onBackPressed()
+            }
+        }
+
+    }
 
 
 }

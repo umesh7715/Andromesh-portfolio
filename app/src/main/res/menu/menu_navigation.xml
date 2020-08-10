@@ -3,9 +3,27 @@
 
     <item
         android:id="@+id/moviesFragment"
+        android:icon="@drawable/app_logo1"
         android:title="@string/movies_navigation_item" />
+
     <item
-        android:id="@+id/legosets_fragment"
-        android:title="@string/legosets_title" />
+        android:id="@+id/dummyFragmentOne"
+        android:icon="@drawable/app_logo1"
+        android:title="@string/dummy_fragment_1" />
+
+    <item
+        android:id="@+id/dummyFragmentTwo"
+        android:icon="@drawable/app_logo1"
+        android:title="@string/dummy_fragment_2" />
+
+    <item
+        android:id="@+id/dummyFragmentThree"
+        android:icon="@drawable/app_logo1"
+        android:title="@string/dummy_fragment_3" />
+
+    <item
+        android:id="@+id/dummyFragmentFour"
+        android:icon="@drawable/app_logo1"
+        android:title="@string/dummy_fragment_4" />
 
 </menu>
