@@ -3,7 +3,6 @@ package com.elifox.legocatalog.binding
 import android.annotation.TargetApi
 import android.os.Build
 import android.text.method.LinkMovementMethod
-import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
@@ -97,5 +96,39 @@ fun bindononPasswordlValidationError(editText: TextInputEditText, strOrResId: Bo
         editText.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.invalid_input, 0, 0, 0)
     }
 }
+
+@TargetApi(Build.VERSION_CODES.LOLLIPOP)
+@RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+@BindingAdapter("onPasswordEmptyError")
+fun bindonPasswordEmptyError(editText: EditText, strOrResId: Boolean) {
+    if (strOrResId) {
+        editText.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.valid_input, 0, R.drawable.username_icon, 0)
+    } else {
+        editText.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.invalid_input, 0, R.drawable.username_icon, 0)
+    }
+}
+
+@TargetApi(Build.VERSION_CODES.LOLLIPOP)
+@RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+@BindingAdapter("onPasswordEmptyErrorTLI")
+fun bindonPasswordEmptyErrorTLI(editText: TextInputEditText, strOrResId: Boolean) {
+    if (strOrResId) {
+        editText.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.valid_input, 0, R.drawable.username_icon, 0)
+    } else {
+        editText.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.invalid_input, 0, R.drawable.username_icon, 0)
+    }
+}
+
+@TargetApi(Build.VERSION_CODES.LOLLIPOP)
+@RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+@BindingAdapter("onPasswordEmptyErrorTV")
+fun bindonPasswordEmptyErrorTV(textView: TextView, strOrResId: Boolean) {
+    if (strOrResId) {
+        textView.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.valid_input18dp, 0)
+    } else {
+        textView.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.invalid_input_18dp, 0)
+    }
+}
+
 
 

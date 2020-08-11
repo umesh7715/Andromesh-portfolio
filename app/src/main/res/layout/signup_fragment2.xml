@@ -14,6 +14,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ProgressBar
+            android:id="@+id/progressBar3"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"
             android:layout_width="wrap_content"
@@ -115,6 +126,7 @@
                         android:ems="10"
                         android:hint="@string/username_hint"
                         android:inputType="textEmailAddress"
+                        android:text="@={viewModel.emailAddress}"
                         android:textColor="@color/Granite"
                         android:textColorHint="@color/Granite"
                         android:textSize="18sp"
@@ -147,10 +159,12 @@
                         android:ems="10"
                         android:hint="@string/password_hint"
                         android:inputType="textPassword"
+                        android:text="@={viewModel.password}"
                         android:textColor="@color/Granite"
                         android:textColorHint="@color/Granite"
                         android:textSize="18sp"
-                        app:backgroundTint="@color/Granite">
+                        app:backgroundTint="@color/Granite"
+                        app:onPasswordEmptyErrorTLI="@{viewModel.isPasswordValid}">
 
                     </com.google.android.material.textfield.TextInputEditText>
 
@@ -177,9 +191,9 @@
                         android:layout_height="wrap_content"
                         android:text="1 Numeric"
                         android:textSize="12sp"
-
                         app:layout_constraintStart_toStartOf="@+id/textView7"
-                        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+                        app:layout_constraintTop_toBottomOf="@+id/textView7"
+                        app:onPasswordEmptyErrorTV="@{viewModel.isNumberPresentValid}" />
 
                     <TextView
                         android:id="@+id/textView7"
@@ -196,48 +210,57 @@
                         android:id="@+id/textView8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:text="1 Capital letter"
                         android:textSize="12sp"
                         app:layout_constraintStart_toStartOf="@+id/textView5"
-                        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                        app:layout_constraintTop_toBottomOf="@+id/textView5"
+                        app:onPasswordEmptyErrorTV="@{viewModel.isCapitalPresentValid}" />
 
                     <TextView
                         android:id="@+id/textView9"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
+                        android:gravity="right"
                         android:text="1 Small letter"
                         android:textSize="12sp"
                         app:layout_constraintBottom_toTopOf="@+id/textView8"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/guideline6"
-                        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+                        app:layout_constraintTop_toBottomOf="@+id/textView11"
+                        app:onPasswordEmptyErrorTV="@{viewModel.isSmallPresentValid}" />
 
                     <TextView
                         android:id="@+id/textView10"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
                         android:drawableEnd="@drawable/valid_input"
                         android:drawableRight="@drawable/valid_input"
                         android:drawablePadding="5dp"
+                        android:gravity="right"
                         android:text="Min 8 characters"
                         android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/guideline6" />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/guideline6"
+                        app:onPasswordEmptyErrorTV="@{viewModel.isEightCharPresentValid}" />
 
                     <TextView
                         android:id="@+id/textView11"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
+                        android:gravity="right"
                         android:text="1 Special character"
                         android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/guideline6"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:onPasswordEmptyErrorTV="@{viewModel.isSpecialCharacterPresentValid}" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -264,10 +287,12 @@
                         android:ems="10"
                         android:hint="@string/confirm_your_password"
                         android:inputType="textPassword"
+                        android:text="@={viewModel.confirmPassword}"
                         android:textColor="@color/Granite"
                         android:textColorHint="@color/Granite"
                         android:textSize="18sp"
-                        app:backgroundTint="@color/Granite">
+                        app:backgroundTint="@color/Granite"
+                        app:onPasswordEmptyErrorTLI="@{viewModel.isConfirmPasswordValid}">
 
                     </com.google.android.material.textfield.TextInputEditText>
 

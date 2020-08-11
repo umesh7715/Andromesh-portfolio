@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.animation.TranslateAnimation
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.DataBindingUtil
@@ -25,8 +27,10 @@ import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
 
+
 class AuthActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
+    private lateinit var binding: LoginAuthBinding
     private lateinit var remoteConfig: FirebaseRemoteConfig
 
     @Inject
@@ -41,7 +45,7 @@ class AuthActivity : AppCompatActivity(), HasSupportFragmentInjector {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val binding: LoginAuthBinding = DataBindingUtil.setContentView(this,
+        binding = DataBindingUtil.setContentView(this,
                 R.layout.login_auth)
 
         auth = Firebase.auth
@@ -76,6 +80,20 @@ class AuthActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
 
     }
+
+    fun animateThing() {
+
+
+        val img_animation: ImageView = binding.bottomSheet.findViewById<View>(R.id.bsUp) as ImageView
+        val display = windowManager.defaultDisplay
+        val height = display.height.toFloat()
+        val animation = TranslateAnimation(0f, 0f, 0f, height + 150) // new TranslateAnimation(xFrom,xTo, yFrom,yTo)
+        animation.duration = 1000 // animation duration
+        animation.repeatCount = 5 // animation repeat count
+        animation.repeatMode = 2
+        img_animation.startAnimation(animation)
+    }
+
 
     fun setupBottomSheet(bottomSheet: View) {
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet as ConstraintLayout)
