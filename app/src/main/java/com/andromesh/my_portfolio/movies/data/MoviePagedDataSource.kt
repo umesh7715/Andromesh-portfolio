@@ -42,13 +42,13 @@ class MoviePagedDataSource @Inject constructor(
                 dao.insertAll(results)
                 callback(results)
             } else if (response.status == Result.Status.ERROR) {
-                postError(response.message!!)
+                postError("Network " + response.message!!)
             }
         }
     }
 
     private fun getJobErrorHandler() = CoroutineExceptionHandler { _, e ->
-        postError(e.message ?: e.toString())
+        postError("coroutine " + e.message)
     }
 
     private fun postError(message: String) {

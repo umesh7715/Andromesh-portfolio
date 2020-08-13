@@ -136,6 +136,14 @@ class AuthViewModel @Inject constructor(private val authRepository: AuthReposito
         user = authRepository.signUp(email, password)
     }
 
+    fun logout() {
+        authRepository.logout()
+    }
+
+    fun getCurrentUser(): FirebaseUser? {
+        return authRepository.getCurrentUser()
+    }
+
 
     //-------------------- password validation ends --------------//
 

@@ -13,3 +13,8 @@ annotation class MovieAPI
 @Retention(AnnotationRetention.BINARY)
 @Qualifier
 annotation class CoroutineScropeIO
+
+@Retention(AnnotationRetention.BINARY)
+@Qualifier
+annotation class CoroutineScropeSupervisor
+

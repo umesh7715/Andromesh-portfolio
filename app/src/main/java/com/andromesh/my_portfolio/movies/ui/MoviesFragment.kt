@@ -54,7 +54,6 @@ class MoviesFragment : Fragment(), Injectable {
         moviesViewModel = injectViewModel(viewModelFactory)
 
         moviesViewModel.connectivityAvailable = ConnectivityUtil.isConnected(requireContext())
-        moviesViewModel.searchText = "hero"
 
         binding = MoviesFragmentBinding.inflate(inflater, container, false)
         context ?: return binding.root
@@ -66,6 +65,19 @@ class MoviesFragment : Fragment(), Injectable {
         binding.rvMovies.adapter = adapter
         subscribeUi(adapter)
 
+        binding.searchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                if (newText!!.length >= 3) {
+                    moviesViewModel.searchFilterText.value = newText
+                    moviesViewModel.connectivityAvailable = ConnectivityUtil.isConnected(requireContext())
+                }
+                return true
+            }
+        })
         setHasOptionsMenu(true)
         return binding.root
     }
@@ -74,7 +86,11 @@ class MoviesFragment : Fragment(), Injectable {
 
         moviesViewModel.moviesList.observe(viewLifecycleOwner) {
             binding.progressBar.hide()
-            adapter.submitList(it)
+            try {
+                adapter.submitList(it)
+            } catch (e: Exception) {
+
+            }
         }
 
     }

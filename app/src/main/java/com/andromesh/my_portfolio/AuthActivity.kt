@@ -3,6 +3,7 @@ package com.andromesh.my_portfolio
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.view.animation.TranslateAnimation
 import android.widget.ImageView
@@ -10,15 +11,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import com.andromesh.my_portfolio.auth.ui.AuthViewModel
 import com.andromesh.my_portfolio.databinding.LoginAuthBinding
+import com.andromesh.my_portfolio.di.injectViewModel
 import com.andromesh.my_portfolio.util.Constants
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfig
@@ -37,9 +39,12 @@ class AuthActivity : AppCompatActivity(), HasSupportFragmentInjector {
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
 
     private lateinit var navController: NavController
-    private lateinit var auth: FirebaseAuth
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+    private lateinit var authViewModel: AuthViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,7 +53,7 @@ class AuthActivity : AppCompatActivity(), HasSupportFragmentInjector {
         binding = DataBindingUtil.setContentView(this,
                 R.layout.login_auth)
 
-        auth = Firebase.auth
+        authViewModel = injectViewModel(viewModelFactory)
 
         remoteConfig = Firebase.remoteConfig
         val configSettings = remoteConfigSettings {
@@ -128,7 +133,7 @@ class AuthActivity : AppCompatActivity(), HasSupportFragmentInjector {
     override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
+        val currentUser = authViewModel.getCurrentUser()
 
         if (currentUser != null) {
             startActivity(Intent(this, MainActivity::class.java))
@@ -154,6 +159,14 @@ class AuthActivity : AppCompatActivity(), HasSupportFragmentInjector {
             }
         }
 
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when (item.itemId) {
+            R.id.action_logout -> authViewModel.logout()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 

@@ -37,6 +37,7 @@
     <string name="dummy_fragment_3">Dummy 3</string>
     <string name="dummy_fragment_4">Dummy 4</string>
     <string name="dummy_fragment_5">Dummy 5</string>
+    <string name="action_logout">Logout</string>
 
 
 </resources>

@@ -3,6 +3,7 @@ package com.andromesh.my_portfolio.auth.data
 import androidx.lifecycle.MutableLiveData
 import com.andromesh.my_portfolio.data.Result
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import javax.inject.Inject
 
 
@@ -50,6 +51,17 @@ class FirebaseDataSourse @Inject constructor() {
                 }
 
         return authenticatedUserMutableLiveData
+    }
+
+    fun logout() {
+
+        auth.signOut()
+
+
+    }
+
+    fun getCurrentUser(): FirebaseUser? {
+        return auth.currentUser
     }
 }
 

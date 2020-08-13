@@ -180,7 +180,6 @@
             android:layout_height="wrap_content"
             android:padding="15dp"
             android:text="@string/login"
-            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/cardView2"
             app:layout_constraintEnd_toEndOf="@+id/cardView2"
             app:layout_constraintStart_toStartOf="@+id/cardView2"

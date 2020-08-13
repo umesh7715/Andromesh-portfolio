@@ -6,11 +6,11 @@ import com.andromesh.my_portfolio.api.AuthInterceptor
 import com.andromesh.my_portfolio.api.MoviesService
 import com.andromesh.my_portfolio.data.AppDatabase
 import com.andromesh.my_portfolio.movies.data.MovieRemoteDataSource
-
 import dagger.Module
 import dagger.Provides
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -51,6 +51,10 @@ class AppModule {
     @CoroutineScropeIO
     @Provides
     fun provideCoroutineScopeIO() = CoroutineScope(Dispatchers.IO)
+
+    @CoroutineScropeSupervisor
+    @Provides
+    fun provideCoroutineScropeSupervisor() = CoroutineScope(SupervisorJob())
 
 
     private fun createRetrofit(

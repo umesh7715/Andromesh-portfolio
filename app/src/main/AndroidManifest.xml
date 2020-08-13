@@ -17,13 +17,14 @@
 
         <activity
             android:name="com.andromesh.my_portfolio.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan">
 
         </activity>
 
         <activity
             android:name="com.andromesh.my_portfolio.AuthActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/SplashScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

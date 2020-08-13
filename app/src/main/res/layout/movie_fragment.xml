@@ -15,6 +15,7 @@
 
         <FrameLayout
             android:layout_width="match_parent"
+            android:paddingBottom="10dp"
             android:layout_height="match_parent">
 
 
@@ -34,6 +35,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
+                    android:textStyle="italic"
                     android:text="@{movie_details.actors}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.555"
@@ -45,6 +47,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
+                    android:textColor="@color/Granite"
                     android:text="@{movie_details.plot}"
                     android:textSize="17sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -67,6 +70,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:text="@{movie_details.runtime}"
+                    android:textColor="@color/colorAccent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -76,6 +80,7 @@
                     android:layout_height="0dp"
                     android:layout_margin="8dp"
                     android:text="@{movie_details.genre}"
+                    android:textColor="@color/colorAccent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imageView" />
 

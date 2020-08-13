@@ -9,12 +9,20 @@ import javax.inject.Singleton
 @Singleton
 class AuthRepository @Inject constructor(private val firebaseDataSourse: FirebaseDataSourse) {
 
-    fun  login(email: String, password: String): MutableLiveData<Result<FirebaseUser>> {
+    fun login(email: String, password: String): MutableLiveData<Result<FirebaseUser>> {
         return firebaseDataSourse.login(email, password)
     }
 
-    fun  signUp(email: String, password: String): MutableLiveData<Result<FirebaseUser>> {
+    fun signUp(email: String, password: String): MutableLiveData<Result<FirebaseUser>> {
         return firebaseDataSourse.signUp(email, password)
+    }
+
+    fun logout() {
+        firebaseDataSourse.logout()
+    }
+
+    fun getCurrentUser(): FirebaseUser? {
+        return firebaseDataSourse.getCurrentUser()
     }
 
 
