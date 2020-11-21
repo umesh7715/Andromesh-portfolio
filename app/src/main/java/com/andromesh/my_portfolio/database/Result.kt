@@ -1,4 +1,4 @@
-package com.andromesh.my_portfolio.data
+package com.andromesh.my_portfolio.database
 
 /**
  * A generic class that holds a value with its loading status.

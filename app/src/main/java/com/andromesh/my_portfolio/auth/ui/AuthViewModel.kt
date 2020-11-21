@@ -5,7 +5,7 @@ import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.andromesh.my_portfolio.auth.data.AuthRepository
-import com.andromesh.my_portfolio.data.Result
+import com.andromesh.my_portfolio.database.Result
 import com.andromesh.my_portfolio.di.CoroutineScropeIO
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.coroutines.CoroutineScope
@@ -14,11 +14,13 @@ import javax.inject.Inject
 
 
 class AuthViewModel @Inject constructor(private val authRepository: AuthRepository,
-                                        @CoroutineScropeIO private val ioCoroutineScope: CoroutineScope)
+                                               @CoroutineScropeIO private val ioCoroutineScope: CoroutineScope)
     : ViewModel() {
 
 
     var user = MutableLiveData<Result<FirebaseUser>>()
+
+    val someString = MutableLiveData("")
 
     //-------------------- Email validation end --------------------//
 

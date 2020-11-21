@@ -34,14 +34,14 @@
     </fragment>
 
     <fragment
-        android:id="@+id/dummyFragmentOne"
-        android:name="com.andromesh.my_portfolio.dummy_frgaments.DummyFragmentOne"
-        android:label="@string/dummy_fragment_1" />
+        android:id="@+id/androFITFragment"
+        android:name="com.andromesh.my_portfolio.fit.ui.AndroFITFragment"
+        android:label="@string/andro_fit" />
 
     <fragment
-        android:id="@+id/dummyFragmentTwo"
-        android:name="com.andromesh.my_portfolio.dummy_frgaments.DummyFragmentTwo"
-        android:label="@string/dummy_fragment_2" />
+        android:id="@+id/androPlayerFragment"
+        android:name="com.andromesh.my_portfolio.player.ui.AndroPlayerFragment"
+        android:label="@string/andro_player" />
 
     <fragment
         android:id="@+id/dummyFragmentThree"

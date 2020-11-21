@@ -32,12 +32,13 @@
     <string name="register">Register</string>
     <string name="confirm_your_password">Confirm Password</string>
 
-    <string name="dummy_fragment_1">Dummy 1</string>
-    <string name="dummy_fragment_2">Dummy 2</string>
+    <string name="andro_fit">AndroFIT</string>
+    <string name="andro_player">Andro PLAYER</string>
     <string name="dummy_fragment_3">Dummy 3</string>
     <string name="dummy_fragment_4">Dummy 4</string>
     <string name="dummy_fragment_5">Dummy 5</string>
     <string name="action_logout">Logout</string>
+    <string name="coming_soon">Coming soon..!!</string>
 
 
 </resources>

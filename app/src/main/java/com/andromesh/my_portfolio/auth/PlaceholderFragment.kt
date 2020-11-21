@@ -28,7 +28,7 @@ class PlaceholderFragment : Fragment(), Injectable {
 
         when (remoteConfig.get("login_screen").source) {
 
-            1 -> findNavController().navigate(PlaceholderFragmentDirections.actionPlaceholderFragmentToLoginFragment2())
+            1 -> findNavController().navigate(PlaceholderFragmentDirections.actionPlaceholderFragmentToLoginFragment())
             2 -> findNavController().navigate(PlaceholderFragmentDirections.actionPlaceholderFragmentToLoginFragment2())
             3 -> findNavController().navigate(PlaceholderFragmentDirections.actionPlaceholderFragmentToLoginFragment3())
         }

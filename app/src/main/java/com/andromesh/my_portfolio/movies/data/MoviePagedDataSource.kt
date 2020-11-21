@@ -1,7 +1,7 @@
 package com.andromesh.my_portfolio.movies.data
 
 import androidx.paging.PageKeyedDataSource
-import com.andromesh.my_portfolio.data.Result
+import com.andromesh.my_portfolio.database.Result
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch

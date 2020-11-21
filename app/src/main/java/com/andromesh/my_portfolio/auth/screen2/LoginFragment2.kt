@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.andromesh.my_portfolio.MainActivity
 import com.andromesh.my_portfolio.auth.ui.AuthViewModel
-import com.andromesh.my_portfolio.data.Result
+import com.andromesh.my_portfolio.database.Result
 import com.andromesh.my_portfolio.databinding.LoginFragment2Binding
 import com.andromesh.my_portfolio.di.Injectable
 import com.andromesh.my_portfolio.di.injectViewModel

@@ -1,4 +1,4 @@
-package com.andromesh.my_portfolio.data
+package com.andromesh.my_portfolio.database
 
 import androidx.room.TypeConverter
 import java.util.*

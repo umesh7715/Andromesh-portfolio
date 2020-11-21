@@ -1,7 +1,7 @@
 package com.andromesh.my_portfolio.auth.data
 
 import androidx.lifecycle.MutableLiveData
-import com.andromesh.my_portfolio.data.Result
+import com.andromesh.my_portfolio.database.Result
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import javax.inject.Inject

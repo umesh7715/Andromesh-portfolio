@@ -1,6 +1,6 @@
 package com.andromesh.my_portfolio.api
 
-import com.andromesh.my_portfolio.data.Result
+import com.andromesh.my_portfolio.database.Result
 import retrofit2.Response
 import timber.log.Timber
 

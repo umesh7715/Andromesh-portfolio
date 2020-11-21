@@ -17,6 +17,7 @@ import androidx.navigation.findNavController
 import com.andromesh.my_portfolio.auth.ui.AuthViewModel
 import com.andromesh.my_portfolio.databinding.LoginAuthBinding
 import com.andromesh.my_portfolio.di.injectViewModel
+import com.andromesh.my_portfolio.fit.service.SensorListnerService
 import com.andromesh.my_portfolio.util.Constants
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.chip.Chip
@@ -54,6 +55,7 @@ class AuthActivity : AppCompatActivity(), HasSupportFragmentInjector {
                 R.layout.login_auth)
 
         authViewModel = injectViewModel(viewModelFactory)
+        authViewModel.someString.value = "started"
 
         remoteConfig = Firebase.remoteConfig
         val configSettings = remoteConfigSettings {
@@ -135,7 +137,12 @@ class AuthActivity : AppCompatActivity(), HasSupportFragmentInjector {
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = authViewModel.getCurrentUser()
 
+
+        startService(Intent(this, SensorListnerService::class.java))
+
         if (currentUser != null) {
+
+
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }

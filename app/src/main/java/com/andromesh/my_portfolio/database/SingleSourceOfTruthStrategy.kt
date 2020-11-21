@@ -1,10 +1,10 @@
-package com.andromesh.my_portfolio.data
+package com.andromesh.my_portfolio.database
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import androidx.lifecycle.map
-import com.andromesh.my_portfolio.data.Result.Status.ERROR
-import com.andromesh.my_portfolio.data.Result.Status.SUCCESS
+import com.andromesh.my_portfolio.database.Result.Status.ERROR
+import com.andromesh.my_portfolio.database.Result.Status.SUCCESS
 import kotlinx.coroutines.Dispatchers
 
 /**

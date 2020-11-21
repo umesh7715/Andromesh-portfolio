@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="com.andromesh.my_portfolio.App"
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@drawable/app_logo2"
         android:label="@string/app_name"
@@ -15,15 +15,21 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
+        <service
+            android:name=".fit.service.SensorListnerService"
+            android:enabled="true"
+            android:exported="true">
+
+        </service>
+
         <activity
-            android:name="com.andromesh.my_portfolio.MainActivity"
+            android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan">
 
         </activity>
-
         <activity
-            android:name="com.andromesh.my_portfolio.AuthActivity"
+            android:name=".AuthActivity"
             android:theme="@style/SplashScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

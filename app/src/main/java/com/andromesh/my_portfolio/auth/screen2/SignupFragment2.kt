@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.andromesh.my_portfolio.MainActivity
 import com.andromesh.my_portfolio.auth.ui.AuthViewModel
-import com.andromesh.my_portfolio.data.Result
+import com.andromesh.my_portfolio.database.Result
 import com.andromesh.my_portfolio.databinding.SignupFragment2Binding
 import com.andromesh.my_portfolio.di.Injectable
 import com.andromesh.my_portfolio.di.injectViewModel

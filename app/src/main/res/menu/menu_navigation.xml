@@ -7,14 +7,14 @@
         android:title="@string/movies_navigation_item" />
 
     <item
-        android:id="@+id/dummyFragmentOne"
+        android:id="@+id/androFITFragment"
         android:icon="@drawable/app_logo1"
-        android:title="@string/dummy_fragment_1" />
+        android:title="@string/andro_fit" />
 
     <item
-        android:id="@+id/dummyFragmentTwo"
+        android:id="@+id/androPlayerFragment"
         android:icon="@drawable/app_logo1"
-        android:title="@string/dummy_fragment_2" />
+        android:title="@string/andro_player" />
 
     <item
         android:id="@+id/dummyFragmentThree"
