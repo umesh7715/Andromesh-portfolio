@@ -18,7 +18,6 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "API_KEY", API_KEY)
         multiDexEnabled true
     }
     buildTypes {
@@ -36,6 +35,11 @@ android {
     }
     kapt {
         generateStubs = true
+    }
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
     }
 }
 
@@ -100,6 +104,10 @@ dependencies {
     // Chart
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
     implementation 'com.github.AnyChart:AnyChart-Android:1.1.2'
+
+    //Exoplayer
+    implementation "com.google.android.exoplayer:exoplayer:2.12.1"
+
 
 
 

@@ -11,10 +11,6 @@
         android:icon="@drawable/app_logo1"
         android:title="@string/andro_fit" />
 
-    <item
-        android:id="@+id/androPlayerFragment"
-        android:icon="@drawable/app_logo1"
-        android:title="@string/andro_player" />
 
     <item
         android:id="@+id/dummyFragmentThree"

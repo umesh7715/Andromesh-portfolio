@@ -39,6 +39,7 @@
     <string name="dummy_fragment_5">Dummy 5</string>
     <string name="action_logout">Logout</string>
     <string name="coming_soon">Coming soon..!!</string>
+    <string name="action_media">Media</string>
 
 
 </resources>

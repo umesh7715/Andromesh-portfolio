@@ -14,10 +14,12 @@ import com.andromesh.my_portfolio.R
 import com.andromesh.my_portfolio.databinding.MoviesFragmentBinding
 import com.andromesh.my_portfolio.di.Injectable
 import com.andromesh.my_portfolio.di.injectViewModel
+import com.andromesh.my_portfolio.util.APIKeyLibrary
 import com.andromesh.my_portfolio.util.ConnectivityUtil
 import com.elifox.legocatalog.ui.GridSpacingItemDecoration
 import com.elifox.legocatalog.ui.VerticalItemDecoration
 import com.elifox.legocatalog.ui.hide
+import timber.log.Timber
 import javax.inject.Inject
 
 class MoviesFragment : Fragment(), Injectable {
@@ -64,6 +66,10 @@ class MoviesFragment : Fragment(), Injectable {
 
         binding.rvMovies.adapter = adapter
         subscribeUi(adapter)
+
+
+        val externalString = APIKeyLibrary().getIMDBKey()
+        Timber.e("Secured key is $externalString")
 
         binding.searchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {

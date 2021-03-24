@@ -6,6 +6,7 @@ import com.andromesh.my_portfolio.api.AuthInterceptor
 import com.andromesh.my_portfolio.api.MoviesService
 import com.andromesh.my_portfolio.database.AppDatabase
 import com.andromesh.my_portfolio.movies.data.MovieRemoteDataSource
+import com.andromesh.my_portfolio.util.APIKeyLibrary
 import dagger.Module
 import dagger.Provides
 import kotlinx.coroutines.CoroutineScope
@@ -36,7 +37,7 @@ class AppModule {
             upstreamClient: OkHttpClient
     ): OkHttpClient {
         return upstreamClient.newBuilder()
-                .addInterceptor(AuthInterceptor(BuildConfig.API_KEY)).build()
+                .addInterceptor(AuthInterceptor(APIKeyLibrary().getIMDBKey())).build()
     }
 
     @Singleton

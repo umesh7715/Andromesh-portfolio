@@ -25,6 +25,7 @@ import com.andromesh.my_portfolio.databinding.ActivityMainBinding
 import com.andromesh.my_portfolio.di.injectViewModel
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
+import timber.log.Timber
 import javax.inject.Inject
 
 
@@ -39,9 +40,16 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
     override fun supportFragmentInjector() = dispatchingAndroidInjector
 
+    external fun stringFromJNI(): String
+
+
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
     private lateinit var authViewModel: AuthViewModel
+
+    init {
+        System.loadLibrary("native-lib")
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +62,7 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
         navController = findNavController(id.nav_fragment)
         appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
+
 
         // Set up ActionBar
         setSupportActionBar(binding.toolbar)
@@ -91,10 +100,15 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when (item.itemId) {
+
             id.action_logout -> {
                 authViewModel.logout()
                 startActivity(Intent(this, AuthActivity::class.java))
                 finish()
+            }
+
+            id.action_media -> {
+                startActivity(Intent(this, PlayerActivity::class.java))
             }
         }
         return super.onOptionsItemSelected(item)
