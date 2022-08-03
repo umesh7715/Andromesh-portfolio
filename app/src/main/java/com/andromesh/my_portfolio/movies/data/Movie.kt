@@ -7,8 +7,6 @@ import com.google.gson.annotations.SerializedName
 @Entity(tableName = "movie")
 data class Movie(
 
-
-
         @field:SerializedName("Title")
         val title: String,
 

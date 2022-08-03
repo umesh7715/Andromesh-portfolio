@@ -22,7 +22,11 @@ class LoginFragment : Fragment(), Injectable {
 
     private lateinit var auth: FirebaseAuth
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         binding = LoginFragmentBinding.inflate(inflater, container, false)
         context ?: return binding.root
 
@@ -35,17 +39,20 @@ class LoginFragment : Fragment(), Injectable {
         auth = Firebase.auth
 
         binding.bLogin.setOnClickListener {
-            auth.signInWithEmailAndPassword(binding.etUsername.text.toString(), binding.etPassword.text.toString())
-                    .addOnCompleteListener(activity as Activity) { task ->
-                        if (task.isSuccessful) {
-                            // Sign in success, update UI with the signed-in user's information
-                            val user = auth.currentUser
-                            startActivity(Intent(activity, MainActivity::class.java))
-                            activity?.finish()
-                        } else {
-                            Toast.makeText(context, "Invalid crednials", Toast.LENGTH_LONG).show()
-                        }
+            auth.signInWithEmailAndPassword(
+                binding.etUsername.text.toString(),
+                binding.etPassword.text.toString()
+            )
+                .addOnCompleteListener(activity as Activity) { task ->
+                    if (task.isSuccessful) {
+                        // Sign in success, update UI with the signed-in user's information
+                        val user = auth.currentUser
+                        startActivity(Intent(activity, MainActivity::class.java))
+                        activity?.finish()
+                    } else {
+                        Toast.makeText(context, "Invalid crednials", Toast.LENGTH_LONG).show()
                     }
+                }
         }
 
 

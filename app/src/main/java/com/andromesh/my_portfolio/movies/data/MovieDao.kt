@@ -17,10 +17,10 @@ interface MovieDao {
     fun getMovieById(imdbID: String): LiveData<MovieDetail>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(movie: Movie)
+    suspend fun insert(movie: Movie): Long
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertMovieDetails(movieDetail: MovieDetail)
+    suspend fun insertMovieDetails(movieDetail: MovieDetail): Long
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(results: List<Movie>)

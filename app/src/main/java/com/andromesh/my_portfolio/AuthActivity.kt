@@ -44,7 +44,6 @@ class AuthActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
         navController = findNavController(R.id.nav_fragment)
 
-        setupBottomSheet(binding.bottomSheet)
 
         var cgTags: ChipGroup = binding.bottomSheet.findViewById<View>(R.id.cgTags) as ChipGroup
 
@@ -62,35 +61,6 @@ class AuthActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
     }
 
-    fun setupBottomSheet(bottomSheet: View) {
-        bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet as ConstraintLayout?)
-        bottomSheetBehavior.setBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
-            override fun onSlide(bottomSheet: View, slideOffset: Float) {
-
-            }
-
-            @SuppressLint("SwitchIntDef")
-            override fun onStateChanged(bottomSheet: View, newState: Int) {
-                when (newState) {
-                    BottomSheetBehavior.STATE_COLLAPSED -> {
-                        // buttonSlideUp.text = "Slide Up"
-                    }
-                    BottomSheetBehavior.STATE_HIDDEN -> {
-
-                    }
-                    BottomSheetBehavior.STATE_EXPANDED -> {
-                        //buttonSlideUp.text = "Slide Down"
-                    }
-                    BottomSheetBehavior.STATE_DRAGGING -> {
-
-                    }
-                    BottomSheetBehavior.STATE_SETTLING -> {
-
-                    }
-                }
-            }
-        })
-    }
 
     override fun onStart() {
         super.onStart()
